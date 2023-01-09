@@ -3,4 +3,9 @@
     <string name="LoginCustomer">Login by Customer</string>
     <string name="LoginAdmin">Login by Admin</string>
     <string name="OpenAccount">Open new Account</string>
+    <string name="customerID">Customer ID (If Any)</string>
+    <string name="name">Name</string>
+    <string name="Address">Address</string>
+    <string name="CreateAccount">Create My Account</string>
+    <string name="Email">Email</string>
 </resources>

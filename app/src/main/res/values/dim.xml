@@ -2,4 +2,6 @@
 <resources>
     <dimen name="buttonWidth">250sp</dimen>
     <dimen name="loginPageMargin">20sp</dimen>
+    <dimen name="marginAccount">10sp</dimen>
+    <dimen name="topMargin">30sp</dimen>
 </resources>
