@@ -1,18 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLoginCustomer"
+        android:layout_width="@dimen/buttonWidth"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_margin="@dimen/loginPageMargin"
+        android:text="@string/LoginAdmin"
+        tools:layout_editor_absoluteX="113dp"
+        tools:layout_editor_absoluteY="184dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLoginAdmin"
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/loginPageMargin"
+        android:text="@string/LoginCustomer"
+        tools:layout_editor_absoluteX="113dp"
+        tools:layout_editor_absoluteY="293dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAddNewAccount"
+        android:layout_width="@dimen/buttonWidth"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/loginPageMargin"
+        android:text="@string/OpenAccount"
+        tools:layout_editor_absoluteX="150dp"
+        tools:layout_editor_absoluteY="450dp" />
+</LinearLayout>
