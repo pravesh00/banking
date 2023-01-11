@@ -8,4 +8,9 @@
     <string name="Address">Address</string>
     <string name="CreateAccount">Create My Account</string>
     <string name="Email">Email</string>
+    <string name="AccountNumber">Account Number</string>
+    <string name="AccountType">Account Type</string>
+    <string name="Balance">Balance</string>
+    <string name="PerformActions">Perform Actions</string>
+    <string name="Refer">Refer</string>
 </resources>

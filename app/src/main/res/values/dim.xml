@@ -4,4 +4,5 @@
     <dimen name="loginPageMargin">20sp</dimen>
     <dimen name="marginAccount">10sp</dimen>
     <dimen name="topMargin">30sp</dimen>
+    <dimen name="accountPaading">10sp</dimen>
 </resources>

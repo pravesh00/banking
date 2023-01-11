@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/txtAccountNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/AccountNumber"
+        tools:layout_editor_absoluteX="63dp"
+        tools:layout_editor_absoluteY="82dp" />
+
+    <TextView
+        android:id="@+id/txtAccountType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/AccountType"
+        tools:layout_editor_absoluteX="194dp"
+        tools:layout_editor_absoluteY="86dp" />
+
+    <TextView
+        android:id="@+id/txtAccountBalance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Balance"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="139dp" />
+
+    <Button
+        android:id="@+id/btnPerformActions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/PerformActions"
+        tools:layout_editor_absoluteX="224dp"
+        tools:layout_editor_absoluteY="129dp" />
+
+</LinearLayout>
