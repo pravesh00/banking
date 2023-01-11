@@ -24,8 +24,8 @@ class AccountAdapter(var accounts: ArrayList<Account>): RecyclerView.Adapter<Acc
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val account = accounts[position]
-        holder.binding.txtAccountBalance.setText(account.balance.toString())
-        holder.binding.txtAccountNumber.setText(account.accountID.toString())
+        holder.binding.txtAccountBalance.setText("Account Balance: "+account.balance.toString())
+        holder.binding.txtAccountNumber.setText("Account ID: "+account.accountID.toString())
     }
 
     override fun getItemCount(): Int {

@@ -1,8 +1,10 @@
 package com.example.banking
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.banking.adapters.AccountAdapter
@@ -21,6 +23,7 @@ class AccountsActivity : AppCompatActivity() {
             Log.d("customer",customer)
         }
         var recyclerView: RecyclerView = findViewById(R.id.recyclerAccounts)
+        var button: Button = findViewById(R.id.btnRefer)
         var accounts = ArrayList<Account>()
         bankingDatabase= BankingDatabase(this)
         repo= RepositoryInstance(BankingDatabase(applicationContext))
@@ -37,6 +40,11 @@ class AccountsActivity : AppCompatActivity() {
             //adapter.updateAccount(accounts)
             adapter.notifyDataSetChanged()
         }
+        button.setOnClickListener{
+            var intent = Intent(this,ReferActivity::class.java)
+            startActivity(intent)
+        }
+
 
 
     }

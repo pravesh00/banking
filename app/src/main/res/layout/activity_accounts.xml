@@ -18,7 +18,7 @@
         tools:layout_editor_absoluteY="1dp" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnRefer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
