@@ -1,26 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:layout_margin="@dimen/topMargin"
-    tools:context=".LoginCustomerActivity">
-
-    <EditText
-        android:id="@+id/txtCustomerID"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="login" type="com.example.banking.viewmodel.LoginPageViewModel"/>
+    </data>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_marginBottom="@dimen/topMargin"
-        android:inputType="textPersonName"
-        android:hint="@string/CustomerID" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_margin="@dimen/topMargin"
+        tools:context=".LoginCustomerActivity">
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/Login" />
-</LinearLayout>
+        <EditText
+            android:id="@+id/txtCustomerID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@={login.customerId}"
+            android:layout_marginBottom="@dimen/topMargin"
+            android:inputType="textPersonName"
+            android:hint="@string/CustomerID" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:onClick="@{()->login.login()}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Login" />
+    </LinearLayout>
+</layout>

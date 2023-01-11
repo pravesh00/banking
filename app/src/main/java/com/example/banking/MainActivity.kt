@@ -16,17 +16,17 @@ class MainActivity : AppCompatActivity() {
         btnLogin.setOnClickListener{
             var intent= Intent(this, LoginCustomerActivity::class.java);
             startActivity(intent)
-            finish()
+          //  finish()
         }
         btnLoginByAdmin.setOnClickListener {
             var intent= Intent(this,AccountsActivity::class.java);
             startActivity(intent)
-            finish()
+            //finish()
         }
         btnOpenAccount.setOnClickListener {
             var intent= Intent(this,AddNewAccountActivity::class.java);
             startActivity(intent)
-            finish()
+           // finish()
         }
     }
 

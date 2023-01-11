@@ -8,7 +8,7 @@ class RepositoryInstance(
     private val bankingDatabase: BankingDatabase
 ) {
     fun insertAccount(account: Account) = bankingDatabase.getAccountDAO().insertAccount(account)
-    fun getAllAccountsByID(id:Int) = bankingDatabase.getAccountDAO().getAllAccounts(id)
+    fun getAllAccountsByID(id:String) = bankingDatabase.getAccountDAO().getAllAccounts(id)
     fun getAccountById(id: Int) = bankingDatabase.getAccountDAO().getAccountDetails(id)
 
     fun getTransactionById(id:Int) = bankingDatabase.getTransactionDAO().getTransactionsByID(id)
