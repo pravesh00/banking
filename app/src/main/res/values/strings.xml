@@ -13,4 +13,6 @@
     <string name="Balance">Balance</string>
     <string name="PerformActions">Perform Actions</string>
     <string name="Refer">Refer</string>
+    <string name="CustomerID">Customer Number</string>
+    <string name="Login">Login</string>
 </resources>

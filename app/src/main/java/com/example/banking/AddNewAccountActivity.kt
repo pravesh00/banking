@@ -1,5 +1,6 @@
 package com.example.banking
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -38,7 +39,16 @@ class AddNewAccountActivity : AppCompatActivity() {
 
         viewModel.successLog.observe(this,Observer{
             if(it.length>0){
-                Toast.makeText(this,it,Toast.LENGTH_SHORT).show()
+                try {
+                    Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+                }finally {
+                    var intent = Intent(this,CongratsActivityActivity::class.java)
+                    var bundle = Bundle()
+                    bundle.putString("message",it)
+                    intent.putExtras(bundle)
+                    startActivity(intent)
+
+                }
             }
         })
 

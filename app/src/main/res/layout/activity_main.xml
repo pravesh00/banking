@@ -13,7 +13,7 @@
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/loginPageMargin"
-        android:text="@string/LoginAdmin"
+        android:text="@string/LoginCustomer"
         tools:layout_editor_absoluteX="113dp"
         tools:layout_editor_absoluteY="184dp" />
 
@@ -22,7 +22,7 @@
         android:layout_width="@dimen/buttonWidth"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/loginPageMargin"
-        android:text="@string/LoginCustomer"
+        android:text="@string/LoginAdmin"
         tools:layout_editor_absoluteX="113dp"
         tools:layout_editor_absoluteY="293dp" />
 
