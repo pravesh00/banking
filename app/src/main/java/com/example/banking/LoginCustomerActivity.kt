@@ -43,6 +43,7 @@ class LoginCustomerActivity : AppCompatActivity() {
                 var intent = Intent(this, AccountsActivity::class.java)
                 var bundle = Bundle()
                 bundle.putString("customerid", viewModel.customerId.value)
+                bundle.putString("name",viewModel.user.value?.name.toString())
                 intent.putExtras(bundle)
                 startActivity(intent)
                 finish()

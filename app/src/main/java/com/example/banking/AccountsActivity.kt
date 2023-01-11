@@ -19,6 +19,7 @@ class AccountsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_accounts)
         var customer = intent.getStringExtra("customerid")
+        var name= intent.getStringExtra("name")
         if (customer != null) {
             Log.d("customer",customer)
         }
@@ -42,6 +43,9 @@ class AccountsActivity : AppCompatActivity() {
         }
         button.setOnClickListener{
             var intent = Intent(this,ReferActivity::class.java)
+            var bundle = Bundle()
+            bundle.putString("name",name);
+            intent.putExtras(bundle)
             startActivity(intent)
         }
 

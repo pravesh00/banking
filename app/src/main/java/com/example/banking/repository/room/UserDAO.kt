@@ -8,7 +8,7 @@ import com.example.banking.repository.model.User
 @Dao
 interface UserDAO {
     @Query("Select * From user where customerID = :id")
-    fun getUserById(id:Int) : List<User>
+    fun getUserById(id:String) : List<User>
 
     @Insert
     fun insert(user: User)

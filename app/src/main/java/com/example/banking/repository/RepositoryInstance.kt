@@ -15,7 +15,8 @@ class RepositoryInstance(
     fun insertTransaction(transaction: Transaction) = bankingDatabase.getTransactionDAO().insert(transaction)
    // suspend fun insertAllTransaction(vararg transactions: Transaction) = bankingDatabase.getTransactionDAO().insertAll(transactions)
 
-    fun getUserDetailsByID(id: Int) = bankingDatabase.getUserDAO().getUserById(id)
+    fun getUserDetailsByID(id: String) = bankingDatabase.getUserDAO().getUserById(id)
     fun insertUserDetails(user: User) = bankingDatabase.getUserDAO().insert(user)
+    fun clearDatabase()  = bankingDatabase.clearAllTables()
 
 }

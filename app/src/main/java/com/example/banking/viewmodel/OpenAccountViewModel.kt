@@ -17,11 +17,12 @@ class OpenAccountViewModel(
     var customerId= MutableLiveData<String>("")
     var errorLog=MutableLiveData<String>("")
     var successLog=MutableLiveData<String>("")
+    var error = MutableLiveData<Boolean>(false)
     //var accountID = MutableLiveData<String>("")
 
     fun addAccount(){
         val accountID=(0..1000000).random();
-
+       // repository.clearDatabase()
 
         if(nametxt.value?.length==0 || email.value?.length==0 || nametxt.value?.length==0 ){
           //  errorLog.postValue(errorLog.value?.plus(1) ?: 0)
@@ -37,11 +38,19 @@ class OpenAccountViewModel(
         }else{
 
             try {
+
                 repository.insertAccount(Account( accountID, accountID.toString()+"BN", 0.0f))
+                repository.insertUserDetails(User(nametxt.value!!,accountID.toString()+"BN", address.value!!,email.value!!))
             }catch(e:Exception){
+                error.postValue(true)
                 errorLog.postValue(e.message)
+                Log.d("messageErr",e.message.toString())
             }finally {
-                successLog.postValue(nametxt.value+email.value+address.value+"Succesful" + "your account id is " +accountID.toString() + "\n" + "Your customerId is "+ accountID.toString()+"BN")
+                if(error.value==false)
+                {   successLog.postValue(nametxt.value+email.value+address.value+"Succesful" + "your account id is " +accountID.toString() + "\n" + "Your customerId is "+ accountID.toString()+"BN")}
+                else{
+                    error.postValue(true)
+                }
             }
         }
 

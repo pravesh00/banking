@@ -1,6 +1,7 @@
 package com.example.banking.repository
 
 import android.content.Context
+import androidx.room.AutoMigration
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -15,7 +16,7 @@ import com.example.banking.repository.room.UserDAO
 @Database(
     entities = [Account::class,Transaction::class, User::class],
     version = 1,
-    exportSchema = false
+    exportSchema = true
 )
 
 abstract class BankingDatabase: RoomDatabase() {

@@ -9,8 +9,10 @@ class ReferActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_refer)
-        var name = "Pravesh".toUpperCase()
-        Log.d("namename",name)
+        var name = intent.getStringExtra("name")?.toUpperCase()
+        if (name != null) {
+            Log.d("namename",name)
+        }
         var referNumber: Int = 0
         val map = mapOf(
         'A' to 1,
@@ -41,8 +43,10 @@ class ReferActivity : AppCompatActivity() {
         'Z' to 134217700)
 //
         try {
-            for (i in name) {
-                referNumber += map[i]!!
+            if (name != null) {
+                for (i in name) {
+                    referNumber += map[i]!!
+                }
             }
         }finally {
             var txtRefer:TextView = findViewById(R.id.txtRefer)
