@@ -38,13 +38,16 @@ class LoginCustomerActivity : AppCompatActivity() {
             if(it.length>0)
             {Toast.makeText(this,it,Toast.LENGTH_LONG).show()}
         });
-        viewModel.btnClicked.observe(this,{
-            if(it){
-                startActivity(Intent(this,AccountsActivity::class.java))
+        viewModel.btnClicked.observe(this) {
+            if (it) {
+                var intent = Intent(this, AccountsActivity::class.java)
+                var bundle = Bundle()
+                bundle.putString("customerid", viewModel.customerId.value)
+                intent.putExtras(bundle)
+                startActivity(intent)
                 finish()
             }
-        })
-
+        }
 
 
     }

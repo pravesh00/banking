@@ -8,6 +8,7 @@
     tools:context=".AccountsActivity">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerAccounts"
         android:layout_width="match_parent"
         android:layout_height="0sp"
         tools:listitem="@layout/account_layout_item"
