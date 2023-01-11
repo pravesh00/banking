@@ -1,54 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_marginTop="@dimen/topMargin"
-    tools:context=".AddNewAccountActivity">
-
-    <EditText
-        android:id="@+id/txtCustomerID"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="account" type="com.example.banking.viewmodel.OpenAccountViewModel"/>
+    </data>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_margin="@dimen/marginAccount"
-        android:hint="@string/customerID"
-        android:inputType="textPersonName" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/topMargin"
+        tools:context=".AddNewAccountActivity">
 
-    <EditText
-        android:id="@+id/txtName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_margin="@dimen/marginAccount"
-        android:inputType="textPersonName"
-        android:hint="@string/name" />
+        <EditText
+            android:id="@+id/txtCustomerID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@{account.newAccount.customerID}"
+            android:layout_margin="@dimen/marginAccount"
+            android:hint="@string/customerID"
+            android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/txtEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_margin="@dimen/marginAccount"
-        android:hint="@string/Email"
-        android:inputType="textEmailAddress" />
+        <EditText
+            android:id="@+id/txtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@{account.newUser.name}"
+            android:layout_margin="@dimen/marginAccount"
+            android:inputType="textPersonName"
+            android:hint="@string/name" />
 
-    <EditText
-        android:id="@+id/txtAddress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_margin="@dimen/marginAccount"
-        android:hint="@string/Address"
-        android:inputType="textPostalAddress" />
+        <EditText
+            android:id="@+id/txtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@{account.newUser.email}"
+            android:layout_margin="@dimen/marginAccount"
+            android:hint="@string/Email"
+            android:inputType="textEmailAddress" />
 
-    <Button
-        android:id="@+id/btnCreateAccount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/marginAccount"
-        android:text="@string/CreateAccount" />
+        <EditText
+            android:id="@+id/txtAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_margin="@dimen/marginAccount"
+            android:hint="@string/Address"
+            android:inputType="textPostalAddress" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btnCreateAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/marginAccount"
+            android:onClick="@{()->account.addAccount()}"
+            android:text="@string/CreateAccount" />
+
+    </LinearLayout>
+</layout>

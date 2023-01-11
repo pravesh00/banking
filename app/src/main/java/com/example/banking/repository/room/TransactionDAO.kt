@@ -8,7 +8,7 @@ import com.example.banking.repository.model.Transaction
 @Dao
 interface TransactionDAO {
     @Query("Select * from `transaction` where accountID = :id")
-    fun getTransactionsByID (id:Number) :  List<Transaction>
+    fun getTransactionsByID (id:Int) :  List<Transaction>
 
     @Insert
     fun insert(transaction: Transaction)

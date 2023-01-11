@@ -5,4 +5,4 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class Account(@PrimaryKey var accountID:Number,@ColumnInfo(name="customerID") var customerID:String,@ColumnInfo(name="balance") var balance:Float)
+data class Account(@PrimaryKey var accountID:Int,@ColumnInfo(name="customerID") var customerID:String="C12",@ColumnInfo(name="balance") var balance:Float=0.0f)
