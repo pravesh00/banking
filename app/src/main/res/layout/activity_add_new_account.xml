@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:text="@{account.newAccount.customerID}"
+            android:text="@={account.customerId}"
             android:layout_margin="@dimen/marginAccount"
             android:hint="@string/customerID"
             android:inputType="textPersonName" />
@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:text="@{account.newUser.name}"
+            android:text="@={account.nametxt}"
             android:layout_margin="@dimen/marginAccount"
             android:inputType="textPersonName"
             android:hint="@string/name" />
@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:text="@{account.newUser.email}"
+            android:text="@={account.email}"
             android:layout_margin="@dimen/marginAccount"
             android:hint="@string/Email"
             android:inputType="textEmailAddress" />
@@ -48,6 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:text="@={account.address}"
             android:layout_margin="@dimen/marginAccount"
             android:hint="@string/Address"
             android:inputType="textPostalAddress" />

@@ -38,6 +38,6 @@ abstract class BankingDatabase: RoomDatabase() {
             context.applicationContext,
             BankingDatabase::class.java,
             DB_NAME
-        ).build()
+        ).allowMainThreadQueries().build()
     }
 }

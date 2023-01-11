@@ -2,6 +2,10 @@ package com.example.banking
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.banking.databinding.ActivityAddNewAccountBinding
 import com.example.banking.repository.BankingDatabase
@@ -17,13 +21,26 @@ class AddNewAccountActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding= ActivityAddNewAccountBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        binding= DataBindingUtil.setContentView(this,R.layout.activity_add_new_account)
+
         //binding.txtAddress.setText("hell")
         bankingDatabase= BankingDatabase(this)
         repo= RepositoryInstance(BankingDatabase(applicationContext))
         val factory = OpenViewModelFactory(repo)
         viewModel=ViewModelProvider(this,factory).get(OpenAccountViewModel::class.java)
+        binding.account=viewModel
+
+        viewModel.errorLog.observe(this,Observer{
+            if(it.length>0){
+                Toast.makeText(this,it,Toast.LENGTH_LONG).show()
+            }
+        })
+
+        viewModel.successLog.observe(this,Observer{
+            if(it.length>0){
+                Toast.makeText(this,it,Toast.LENGTH_SHORT).show()
+            }
+        })
 
     }
 }
