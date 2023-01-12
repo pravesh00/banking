@@ -15,4 +15,10 @@
     <string name="Refer">Refer</string>
     <string name="CustomerID">Customer Number</string>
     <string name="Login">Login</string>
+    <string name="Withdraw">Withdraw</string>
+    <string name="Deposit">Deposit</string>
+    <string name="Enteramount">Enter an amount</string>
+    <string name="TransactionID">TransactionID</string>
+    <string name="amount">Amount</string>
+    <string name="date">Date</string>
 </resources>

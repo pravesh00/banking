@@ -27,7 +27,7 @@ class LoginCustomerActivity : AppCompatActivity() {
     private lateinit var repo: RepositoryInstance
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login_customer)
+        //setContentView(R.layout.activity_login_customer)
         binding= DataBindingUtil.setContentView(this, R.layout.activity_login_customer)
         bankingDatabase= BankingDatabase(this)
         repo= RepositoryInstance(BankingDatabase(applicationContext))

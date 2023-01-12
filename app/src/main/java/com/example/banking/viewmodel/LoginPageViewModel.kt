@@ -16,9 +16,11 @@ class LoginPageViewModel(
     val user = MutableLiveData<User>()
 
     fun login(){
+      //  repository.clearDatabase()
         try{
             if(customerId.value?.length!! >0)
             {   val accounts =repository.getUserDetailsByID(customerId.value!!)
+
                 if(accounts.size>0){
                     message.postValue("Customer name is" +accounts[0].name.toString())
                     user.postValue(accounts[0])

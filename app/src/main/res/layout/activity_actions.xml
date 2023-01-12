@@ -1,32 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="transaction" type="com.example.banking.viewmodel.TransactionViewModel"/>
+    </data>
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginTop="@dimen/topMargin"
+    android:layout_margin="@dimen/topMargin"
     tools:context=".ActionsActivity">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/txtAmount"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:layout_marginBottom="20sp"
+        android:textSize="20sp"
+        android:text="@={transaction.amount}"
+        android:hint="@string/Enteramount" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10sp"
+        android:orientation="horizontal">
+    <Button
+        android:id="@+id/btnWithdraw"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/Withdraw"
+        android:layout_marginRight="20sp"
+        android:onClick="@{()->transaction.withdraw()}"
+        android:layout_weight="1"
         tools:layout_editor_absoluteX="23dp"
         tools:layout_editor_absoluteY="29dp" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnDeposit"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="20sp"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="@string/Deposit"
+        android:onClick="@{()->transaction.deposit()}"
         tools:layout_editor_absoluteX="23dp"
         tools:layout_editor_absoluteY="109dp" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="27dp"
-        tools:layout_editor_absoluteY="182dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerTransactions"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20sp"
+        tools:listitem="@layout/transaction_layout_item"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
+</layout>

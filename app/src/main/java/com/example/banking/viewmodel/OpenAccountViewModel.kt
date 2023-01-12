@@ -22,7 +22,7 @@ class OpenAccountViewModel(
 
     fun addAccount(){
         val accountID=(0..1000000).random();
-       // repository.clearDatabase()
+        //repository.clearDatabase()
 
         if(nametxt.value?.length==0 || email.value?.length==0 || nametxt.value?.length==0 ){
           //  errorLog.postValue(errorLog.value?.plus(1) ?: 0)

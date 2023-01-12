@@ -1,8 +1,11 @@
 package com.example.banking.adapters
 
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.banking.ActionsActivity
 import com.example.banking.databinding.AccountLayoutItemBinding
 import com.example.banking.repository.model.Account
 
@@ -26,6 +29,13 @@ class AccountAdapter(var accounts: ArrayList<Account>): RecyclerView.Adapter<Acc
         val account = accounts[position]
         holder.binding.txtAccountBalance.setText("Account Balance: "+account.balance.toString())
         holder.binding.txtAccountNumber.setText("Account ID: "+account.accountID.toString())
+        holder.binding.btnPerformActions.setOnClickListener{
+            var intent=Intent(holder.binding.root.context,ActionsActivity::class.java)
+            var bundle = Bundle()
+            bundle.putString("accountID",account.accountID.toString())
+            intent.putExtras(bundle)
+            holder.binding.root.context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
