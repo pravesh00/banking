@@ -29,6 +29,7 @@ class TransactionViewModel(
                     amount.value.toString().toFloat()
                 )
             );
+            repository.addAmountAccount(amount.value.toString().toFloat()*-1,account)
         }finally {
             message.postValue(trId.toString()+" "+account.toString()+" "+amount.value.toString())
         }
@@ -51,6 +52,7 @@ class TransactionViewModel(
                     amount.value.toString().toFloat()
                 )
             );
+            repository.addAmountAccount(amount.value.toString().toFloat(),account)
         }finally {
             message.postValue(trId.toString()+" "+account.toString()+" "+amount.value.toString())
         }

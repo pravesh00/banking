@@ -17,6 +17,7 @@ class RepositoryInstance(
 
     fun getUserDetailsByID(id: String) = bankingDatabase.getUserDAO().getUserById(id)
     fun insertUserDetails(user: User) = bankingDatabase.getUserDAO().insert(user)
+    fun addAmountAccount(amt:Float, id:Int) = bankingDatabase.getAccountDAO().addAmountToAccount(amt,id)
     fun clearDatabase()  = bankingDatabase.clearAllTables()
 
 }
