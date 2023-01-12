@@ -18,6 +18,13 @@
         tools:layout_editor_absoluteY="1dp" />
 
     <Button
+        android:id="@+id/btnLoan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_margin="@dimen/accountPaading"
+        android:text="@string/loan" />
+    <Button
         android:id="@+id/btnRefer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

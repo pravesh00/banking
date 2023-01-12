@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+        xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable name="account" type="com.example.banking.viewmodel.OpenAccountViewModel"/>
     </data>
@@ -22,6 +21,13 @@
             android:layout_margin="@dimen/marginAccount"
             android:hint="@string/customerID"
             android:inputType="textPersonName" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_margin="10sp"
+            android:id="@+id/btnCheckMyId"
+            android:onClick="@{()->account.checkCustomerId()}"
+            android:text="@string/checkmycustomer"
+            android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/txtName"
@@ -53,6 +59,24 @@
             android:hint="@string/Address"
             android:inputType="textPostalAddress" />
 
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_margin="10sp"
+            android:onCheckedChanged="@{()->account.onChangeOfAccount()}"
+            android:id="@+id/radioGrpType"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:text="@string/saving"
+                android:id="@+id/radioSaving"
+                android:checked="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:text="@string/current"
+                android:id="@+id/radioCurrent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RadioGroup>
         <Button
             android:id="@+id/btnCreateAccount"
             android:layout_width="match_parent"
@@ -60,6 +84,5 @@
             android:layout_margin="@dimen/marginAccount"
             android:onClick="@{()->account.addAccount()}"
             android:text="@string/CreateAccount" />
-
     </LinearLayout>
 </layout>

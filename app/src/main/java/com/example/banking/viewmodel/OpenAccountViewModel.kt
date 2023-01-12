@@ -18,18 +18,46 @@ class OpenAccountViewModel(
     var errorLog=MutableLiveData<String>("")
     var successLog=MutableLiveData<String>("")
     var error = MutableLiveData<Boolean>(false)
+    var checkingID = MutableLiveData<Boolean> (false)
+    var typeofAccount = MutableLiveData<String>("Saving")
     //var accountID = MutableLiveData<String>("")
+
+    fun checkCustomerId(){
+        try{
+            var list:List<User> = repository.getUserDetailsByID(customerId.value.toString())
+            if(list!=null && list.size>0){
+                nametxt.postValue(list[0].name)
+                address.postValue(list[0].address)
+                email.postValue(list[0].email)
+                checkingID.postValue(true)
+            }else{
+                errorLog.postValue("Customer Id is invalid")
+                checkingID.postValue(false)
+            }
+        }catch(e:Exception) {
+            checkingID.postValue(false)
+        }
+    }
+
+    fun onChangeOfAccount(){
+        if(typeofAccount.value=="Saving"){
+            typeofAccount.postValue("Current")
+
+        }else{
+            typeofAccount.postValue("Saving")
+        }
+    }
 
     fun addAccount(){
         val accountID=(0..1000000).random();
-        //repository.clearDatabase()
+        repository.clearDatabase()
 
         if(nametxt.value?.length==0 || email.value?.length==0 || nametxt.value?.length==0 ){
           //  errorLog.postValue(errorLog.value?.plus(1) ?: 0)
             errorLog.postValue("Field is missing")
         }else if(customerId.value?.length!=0 && customerId.value!=null && customerId.value!="0"){
            try {
-                repository.insertAccount(Account( accountID, customerId.value!!, 0.0f))
+                repository.insertAccount(Account( accountID, customerId.value!!, 0.0f,typeofAccount.value.toString()))
             }catch(e:Exception){
                 errorLog.postValue(e.message)
             }finally {
@@ -39,8 +67,26 @@ class OpenAccountViewModel(
 
             try {
 
-                repository.insertAccount(Account( accountID, accountID.toString()+"BN", 0.0f))
-                repository.insertUserDetails(User(nametxt.value!!,accountID.toString()+"BN", address.value!!,email.value!!))
+                try {
+                    repository.insertUserDetails(
+                        User(
+                            nametxt.value!!,
+                            accountID.toString() + "BN",
+                            address.value!!,
+                            email.value!!
+                        )
+                    )
+
+                }finally {
+                    repository.insertAccount(
+                        Account(
+                            accountID,
+                            accountID.toString() + "BN",
+                            0.0f,
+                            typeofAccount.value.toString()
+                        )
+                    )
+                }
             }catch(e:Exception){
                 error.postValue(true)
                 errorLog.postValue(e.message)

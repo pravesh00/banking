@@ -50,7 +50,7 @@ class ReferActivity : AppCompatActivity() {
             }
         }finally {
             var txtRefer:TextView = findViewById(R.id.txtRefer)
-            txtRefer.text = "Refer value is "+referNumber.toString()
+            txtRefer.text = referNumber.toString()
         }
 
 

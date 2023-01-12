@@ -24,6 +24,7 @@ class LoginPageViewModel(
                 if(accounts.size>0){
                     message.postValue("Customer name is" +accounts[0].name.toString())
                     user.postValue(accounts[0])
+                    btnClicked.postValue(true)
                 }else{
                     message.postValue("No accounts with this customer Id")
                 }
@@ -31,7 +32,7 @@ class LoginPageViewModel(
         }catch (e:Exception) {
             message.postValue("Something Went Wrong")
         }finally {
-            btnClicked.postValue(true)
+
         }
     }
 

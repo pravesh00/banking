@@ -29,6 +29,7 @@ class AccountAdapter(var accounts: ArrayList<Account>): RecyclerView.Adapter<Acc
         val account = accounts[position]
         holder.binding.txtAccountBalance.setText("Account Balance: "+account.balance.toString())
         holder.binding.txtAccountNumber.setText("Account ID: "+account.accountID.toString())
+        holder.binding.txtAccountType.setText("Type of Account: "+account.type.toString()+" Account")
         holder.binding.btnPerformActions.setOnClickListener{
             var intent=Intent(holder.binding.root.context,ActionsActivity::class.java)
             var bundle = Bundle()

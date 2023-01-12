@@ -29,12 +29,12 @@ class AccountsActivity : AppCompatActivity() {
         bankingDatabase= BankingDatabase(this)
         repo= RepositoryInstance(BankingDatabase(applicationContext))
 
-        accounts.add(Account(1222,customer.toString(),122f))
+        //accounts.add(Account(1222,customer.toString(),122f))
         var adapter = AccountAdapter(accounts)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
         try{
-            accounts.clear()
+          //  accounts.clear()
             accounts.addAll(repo.getAllAccountsByID(customer.toString()))
 
         }finally {

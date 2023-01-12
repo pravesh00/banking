@@ -24,7 +24,6 @@ class AddNewAccountActivity : AppCompatActivity() {
 
         binding= DataBindingUtil.setContentView(this,R.layout.activity_add_new_account)
 
-        //binding.txtAddress.setText("hell")
         bankingDatabase= BankingDatabase(this)
         repo= RepositoryInstance(BankingDatabase(applicationContext))
         val factory = OpenViewModelFactory(repo)
@@ -35,6 +34,32 @@ class AddNewAccountActivity : AppCompatActivity() {
             if(it.length>0){
                 Toast.makeText(this,it,Toast.LENGTH_LONG).show()
             }
+        })
+
+        viewModel.customerId.observe(this, Observer {
+            if(it.length>0){
+                binding.btnCheckMyId.isEnabled = true
+                binding.txtName.setText("")
+                binding.txtEmail.setText("")
+                binding.txtAddress.setText("")
+                binding.txtName.isEnabled = false
+                binding.txtEmail.isEnabled = false
+                binding.txtAddress.isEnabled = false
+                binding.btnCreateAccount.isEnabled = false
+            }else{
+                binding.btnCheckMyId.isEnabled = false
+                binding.txtName.isEnabled = true
+                binding.txtEmail.isEnabled = true
+                binding.txtAddress.isEnabled = true
+                binding.btnCreateAccount.isEnabled = true
+            }
+        })
+
+        viewModel.checkingID.observe(this, Observer {
+            binding.txtName.setText(viewModel.nametxt.value)
+            binding.txtAddress.setText(viewModel.address.value)
+            binding.txtEmail.setText(viewModel.email.value)
+            binding.btnCreateAccount.isEnabled=true
         })
 
         viewModel.successLog.observe(this,Observer{

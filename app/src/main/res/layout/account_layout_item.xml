@@ -12,6 +12,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/AccountNumber"
+        android:textSize="15sp"
+        android:gravity="left"
+        android:layout_marginBottom="5sp"
+        android:layout_gravity="left"
         tools:layout_editor_absoluteX="63dp"
         tools:layout_editor_absoluteY="82dp" />
 
@@ -19,6 +23,10 @@
         android:id="@+id/txtAccountType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="left"
+        android:textSize="18sp"
+        android:layout_marginBottom="5sp"
+        android:layout_gravity="left"
         android:text="@string/AccountType"
         tools:layout_editor_absoluteX="194dp"
         tools:layout_editor_absoluteY="86dp" />
@@ -27,12 +35,17 @@
         android:id="@+id/txtAccountBalance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="left"
+        android:textStyle="bold"
+        android:layout_marginBottom="5sp"
+        android:layout_gravity="left"
         android:text="@string/Balance"
         tools:layout_editor_absoluteX="85dp"
         tools:layout_editor_absoluteY="139dp" />
 
     <Button
         android:id="@+id/btnPerformActions"
+        android:layout_gravity="right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/PerformActions"

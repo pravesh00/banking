@@ -21,4 +21,8 @@
     <string name="TransactionID">TransactionID</string>
     <string name="amount">Amount</string>
     <string name="date">Date</string>
+    <string name="loan">Loan Account</string>
+    <string name="saving">Savings Account</string>
+    <string name="current">Current Account</string>
+    <string name="checkmycustomer">Check my customerID</string>
 </resources>
